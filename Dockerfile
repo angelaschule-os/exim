@@ -1,13 +1,19 @@
-FROM alpine
+FROM debian:stable-slim
 
 LABEL maintainer="bjoern.schilberg@angelaschule-osnabrueck.net"
 LABEL version="1.0"
 
-RUN apk upgrade -U && \
-    apk add exim && \\
-    apk add mailutils --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing
+RUN set -x \
+  && apt-get update \
+  && apt-get install -y exim4 mailutils
+
+RUN apt-get update && apt-get install -y exim4 && rm -rf /var/lib/apt/lists/*
 
 ADD update-exim4.conf.conf /etc/exim4/
+RUN update-exim4.conf
 
 EXPOSE 25
-CMD ["exim", "-bd", "-v"]
+
+# http://www.exim.org/exim-html-current/doc/html/spec_html/ch-the_exim_command_line.html
+ENTRYPOINT ["exim"]
+CMD ["-bd", "-v" , "-d"]
