@@ -13,13 +13,13 @@ docker build -t angelaschule/exim4 .
 ## run 
 
 ```bash
-docker run -ti -p 25:25 angelaschule/exim4
+docker run --name mail -ti -p 25:25 angelaschule/exim4
 ```
 
 ## run as demon
 
 ```bash
-docker run -ti -d -p 25:25 angelaschule/exim4
+docker run --name mail -ti -d -p 25:25 angelaschule/exim4
 ```
 
 You can now access and send emails on `localhost:25`.
@@ -34,6 +34,10 @@ apt-get install mailutils
 ```
 
 ## Test
+
+```shell
+docker exec -it mail bash
+```
 
 ```shell
 echo "This is the message body" | mail -s "This is the subject" mail@example.com
