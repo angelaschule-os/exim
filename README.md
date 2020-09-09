@@ -2,21 +2,34 @@
 
 Simple exim4 SMTP server for development purposes.
 
+- [exim4 Docker image](#exim4-docker-image)
+  - [Note](#note)
+  - [Build](#build)
+  - [Run](#run)
+  - [Run as demon](#run-as-demon)
+  - [Install the mail command](#install-the-mail-command)
+  - [Test](#test)
 
-## build 
+## Note
+
+This is for development purposes only. Get a SMTP server up and running in no
+time at all.
+
+
+## Build 
 
 ```shell
 docker build -t angelaschule/exim4 .
 ```
 
 
-## run 
+## Run 
 
 ```bash
 docker run --name mail -ti -p 25:25 angelaschule/exim4
 ```
 
-## run as demon
+## Run as demon
 
 ```bash
 docker run --name mail -ti -d -p 25:25 angelaschule/exim4
@@ -43,7 +56,4 @@ docker exec -it mail bash
 echo "This is the message body" | mail -s "This is the subject" mail@example.com
 ```
 
-## Note
 
-This is for development purposes only. Get a SMTP server up and running in no
-time at all.
