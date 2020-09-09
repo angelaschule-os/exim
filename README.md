@@ -1,8 +1,8 @@
-# exim4 Docker image
+# exim Docker image
 
-Simple exim4 SMTP server for development purposes.
+Simple [exim](https://www.exim.org/) SMTP server for development purposes.
 
-- [exim4 Docker image](#exim4-docker-image)
+- [exim Docker image](#exim-docker-image)
   - [Note](#note)
   - [Build](#build)
   - [Run](#run)
