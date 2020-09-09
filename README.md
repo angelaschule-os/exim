@@ -9,6 +9,7 @@ Simple exim4 SMTP server for development purposes.
   - [Run as demon](#run-as-demon)
   - [Install the mail command](#install-the-mail-command)
   - [Test](#test)
+  - [Logging](#logging)
 
 ## Note
 
@@ -56,4 +57,6 @@ docker exec -it mail bash
 echo "This is the message body" | mail -s "This is the subject" mail@example.com
 ```
 
+## Logging
 
+TODO: Made `/var/log/exim4/mainlog` appear in the `docker logs`.
