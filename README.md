@@ -7,8 +7,9 @@ Simple exim4 SMTP server for development purposes.
   - [Build](#build)
   - [Run](#run)
   - [Run as demon](#run-as-demon)
-  - [Install the mail command](#install-the-mail-command)
   - [Test](#test)
+    - [Install the mail command](#install-the-mail-command)
+    - [Send test email form the commandline](#send-test-email-form-the-commandline)
   - [Logging](#logging)
 
 ## Note
@@ -16,13 +17,11 @@ Simple exim4 SMTP server for development purposes.
 This is for development purposes only. Get a SMTP server up and running in no
 time at all.
 
-
 ## Build 
 
 ```shell
 docker build -t angelaschule/exim4 .
 ```
-
 
 ## Run 
 
@@ -35,19 +34,16 @@ docker run --name mail -ti -p 25:25 angelaschule/exim4
 ```bash
 docker run --name mail -ti -d -p 25:25 angelaschule/exim4
 ```
-
 You can now access and send emails on `localhost:25`.
 
+## Test
 
-## Install the mail command
-
-Install the mail command
+### Install the mail command
 
 ```shell
 apt-get install mailutils 
 ```
-
-## Test
+### Send test email form the commandline
 
 ```shell
 docker exec -it mail bash
